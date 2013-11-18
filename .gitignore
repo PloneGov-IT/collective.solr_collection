@@ -1,0 +1,11 @@
+.installed.cfg
+.mr.developer.cfg
+.project
+.pydevproject
+.settings
+bin
+eggs
+develop-eggs
+parts
+var
+

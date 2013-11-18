@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="solr">
+  <connection>
+    <active value="true" />
+  </connection>
+  <settings>
+    <required-query-parameters>
+      <parameter name="SOLR_DISABLED" />
+    </required-query-parameters>
+  </settings>
+</object>

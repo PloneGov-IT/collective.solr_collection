@@ -1,0 +1,4 @@
+<layers>
+    <layer name="collective.solr_collection"
+           interface="collective.solr_collection.interfaces.ISolrCollectionLayer" />
+</layers>

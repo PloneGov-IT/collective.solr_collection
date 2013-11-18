@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.solr_collection">
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <include package="collective.solr" />
+  <include package="plone.app.collection" />
+  <include package=".browser" />
+  
+  <adapter name="ploneSite" factory=".indexers.ploneSite" />
+  <adapter
+    name="solr_collection" 
+    factory=".extender.SolrCollectionExtender"
+	provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
+	/>
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.solr_collection"
+      directory="profiles/default"
+      description="Site collections will be able to query Solr"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  
+</configure>
