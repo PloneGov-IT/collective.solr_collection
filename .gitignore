@@ -8,4 +8,7 @@ eggs
 develop-eggs
 parts
 var
+*.pyc
+src/archetypes.querywidget
+src/collective.solr
 
