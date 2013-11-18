@@ -20,7 +20,7 @@ class SolrCollectionFlare(PloneFlare):
         """ convert the physical path into a url, if it was stored """
         path = self.getPath()
         path = path.encode('utf-8')
-        public_url = self.publicURL
+        public_url = getattr(self, 'publicURL', None)
         if relative:
             logger.warning('getURL called with relative for path %s' % path)
             return PloneFlare.getURL(self, relative)
