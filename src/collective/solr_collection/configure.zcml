@@ -12,11 +12,14 @@
   <include package=".browser" />
   
   <adapter name="ploneSite" factory=".indexers.ploneSite" />
+  <adapter name="publicURL" factory=".indexers.publicURL" />
   <adapter
     name="solr_collection" 
     factory=".extender.SolrCollectionExtender"
 	provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
 	/>
+  <adapter
+      factory=".flare.SolrCollectionFlare" />
 
   <genericsetup:registerProfile
       name="default"
@@ -25,5 +28,14 @@
       description="Site collections will be able to query Solr"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-  
+
+  <genericsetup:importStep
+      name="collective.solr_collection.various"
+      title="collective.solr_collection: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="collective.solr_collection.setuphandlers.setupVarious">
+      <depends name="catalog"/>
+      <depends name="propertiestool"/>
+  </genericsetup:importStep>
+
 </configure>
