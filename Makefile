@@ -4,9 +4,8 @@ ifndef VTENV_OPTS
 VTENV_OPTS = "--no-site-packages"
 endif
 
-buildout: bin/buildout vaurien/bin/buildout
+buildout: bin/buildout
 	bin/buildout
-	(cd vaurien && bin/buildout)
 
 demo: bin/buildout
 	bin/buildout install site1 site2
@@ -19,6 +18,3 @@ bin/python:
 
 bin/buildout: bin/python
 	bin/python bootstrap.py
-
-vaurien/bin/buildout: bin/python
-	(cd vaurien && ../bin/python bootstrap.py)
