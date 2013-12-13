@@ -5,6 +5,8 @@ from plone.app.querystring import queryparser
 
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.PloneBatch import Batch
+from zope.component import getMultiAdapter, getUtility
+
 
 class QueryBuilder(Base):
     """Force the use of Solr"""
@@ -19,10 +21,14 @@ class QueryBuilder(Base):
                 return []
             else:
                 return IContentListing([])
-
-        if self.context.getField('useSolr').get(self.context):
-            parsedquery['use_solr'] = True
-
+        if 'use_solr' in self.context.REQUEST.form:
+                parsedquery['use_solr'] = self.context.REQUEST.form.get('use_solr')
+        else:
+            try:
+                if self.context.getField('useSolr').get(self.context):
+                    parsedquery['use_solr'] = True
+            except AttributeError:
+                pass
         catalog = getToolByName(self.context, 'portal_catalog')
         if batch:
             parsedquery['b_start'] = b_start
@@ -59,8 +65,15 @@ class QueryBuilder(Base):
                 parsedquery['Subject']['query'] = copy_of_query
             else:
                 pass
-
         results = catalog(parsedquery)
+        if getattr(results, 'response', []) and parsedquery.get('use_solr') and limit == 10:
+            #BBB There is a better way to do this?
+            #if a limit is set (for example in the query made for preview), solr results are a list with
+            #some None elements that breaks contentlisting iterator.
+            #This hook, remove None elements, and ad an attribute for actual_result_count
+            actual_result_count = len(results)
+            results.response = [x for x in results.response if x]
+            results.actual_result_count = actual_result_count
         if not brains:
             results = IContentListing(results)
         if batch:
