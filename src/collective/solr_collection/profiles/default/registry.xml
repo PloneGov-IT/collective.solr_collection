@@ -10,5 +10,6 @@
           <element>plone.app.querystring.operation.selection.is</element>
       </value>
       <value key="group" i18n:translate="">Metadata</value>
+      <value key="vocabulary">collective.solr_collection.vocabularies.PloneSite</value>
   </records>
 </registry>

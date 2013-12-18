@@ -39,4 +39,9 @@
       <depends name="propertiestool"/>
   </genericsetup:importStep>
 
+  <utility
+    component=".vocabularies.PloneSiteVocabularyFactory"
+    name="collective.solr_collection.vocabularies.PloneSite"
+    />
+
 </configure>
