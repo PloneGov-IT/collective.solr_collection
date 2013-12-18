@@ -6,7 +6,8 @@
     i18n_domain="collective.solr_collection">
 
   <five:registerPackage package="." initialize=".initialize" />
-
+  <i18n:registerTranslations directory="locales" />
+  
   <include package="collective.solr" />
   <include package="plone.app.collection" />
   <include package=".browser" />

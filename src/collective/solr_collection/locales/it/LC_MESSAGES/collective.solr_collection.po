@@ -1,0 +1,40 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-12-18 16:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.solr_collection\n"
+
+#: ../profiles/default/registry.xml
+msgid "A list of other sites where perform the search"
+msgstr "Una lista di altri portali dove effettuare la ricerca"
+
+#: ../profiles/default/registry.xml
+msgid "Metadata"
+msgstr ""
+
+#: ../profiles/default/registry.xml
+msgid "Plone Site"
+msgstr "Portali"
+
+#: ../extender.py:49
+msgid "Use Solr"
+msgstr "Utilizza Solr"
+
+#. Default: "When checked, query Solr instead of site catalog"
+#: ../extender.py:50
+msgid "help_use_solr"
+msgstr "Se selezionato, viene utilizzato il catalogo di Solr per le ricerche."
+
