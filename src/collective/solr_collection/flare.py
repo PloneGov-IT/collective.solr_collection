@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-from Products.CMFCore.utils import getToolByName
 from zope.component import adapts
 from zope.interface import implements
 from collective.solr.flare import PloneFlare
