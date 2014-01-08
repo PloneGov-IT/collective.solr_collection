@@ -17,6 +17,7 @@
 
   <adapter name="ploneSite" factory=".indexers.ploneSite" />
   <adapter name="publicURL" factory=".indexers.publicURL" />
+  <adapter name="hasImage" factory=".indexers.hasImage" />
   <adapter
     name="solr_collection" 
     factory=".extender.SolrCollectionExtender"

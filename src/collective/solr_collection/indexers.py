@@ -4,9 +4,11 @@ from Products.CMFCore.utils import getToolByName
 from plone.indexer.decorator import indexer
 from Products.CMFCore.interfaces import IContentish
 
+
 @indexer(IContentish)
 def ploneSite(obj, **kwargs):
     return obj.getPhysicalPath()[1]
+
 
 @indexer(IContentish)
 def publicURL(obj, **kwargs):
@@ -16,3 +18,10 @@ def publicURL(obj, **kwargs):
         portal_url = getToolByName(obj, 'portal_url')()
         return obj.absolute_url().replace(portal_url, solr_collection_props.site_public_url)
     return obj.absolute_url()
+
+
+@indexer(IContentish)
+def hasImage(obj, **kwargs):
+    if getattr(obj, 'getImage', None) and obj.getImage():
+        return True
+    return False

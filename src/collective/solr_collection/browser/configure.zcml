@@ -47,4 +47,13 @@
     attribute="number_of_results"
     />
 
+  <browser:page
+      name="thumbnail_view"
+      permission="zope2.View"
+      for="plone.app.collection.interfaces.ICollection"
+      template="templates/thumbnail_view.pt"
+      class=".thumbnail_view.ThumbnailView"
+      layer="..interfaces.ISolrCollectionLayer"
+      />
+
 </configure>
